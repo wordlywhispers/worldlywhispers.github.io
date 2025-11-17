@@ -1,0 +1,340 @@
+<!--
+File: mithilesh_personal_blog.html
+Single-file responsive personal brand + blog for "Worldly Whispers" about everything happening in the world.
+How to use:
+1) Open this file in a browser to preview locally.
+2) Edit the content (titles, posts, About text) directly in this file.
+3) To publish for free:
+   - GitHub Pages: push this file to a repo (rename to index.html in repo root or gh-pages branch). Enable GitHub Pages in repo settings.
+   - Netlify / Vercel: drag & drop or connect repo; both have free tiers and can publish this single file.
+   - Alternatively, copy the HTML into any site builder that supports custom HTML.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Worldly Whispers — Personal Brand & World Blog</title>
+  <meta name="description" content="Worldly Whispers — global stories, clear insights. Editor Mithsu curates news, culture, tech, and society with accessible analysis."/>
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Worldly Whispers — Global Stories, Clear Insights" />
+  <meta property="og:description" content="Worldly Whispers curates and explains the week's most important global stories. Edited by Mithsu." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/ww-og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Worldly Whispers — Global Stories, Clear Insights" />
+  <meta name="twitter:description" content="Curated global news, culture, and analysis from Editor Mithsu." />
+  
+  <style>
+    /* Dark theme variables and theme toggle */
+    :root{--bg:#fbfbfb;--card:#fff;--accent:#3b82f6;--text:#111;--muted:#666}
+    [data-theme="dark"]{--bg:#0b1220;--card:#071122;--accent:#60a5fa;--text:#ecf0f6;--muted:#9aa6b2}
+  
+    :root{--bg:#fbfbfb;--card:#fff;--accent:#3b82f6;--text:#111;--muted:#666}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial;line-height:1.5;color:var(--text);background:var(--bg)}
+    header{background:linear-gradient(90deg,rgba(59,130,246,0.06),transparent);border-bottom:1px solid #eee}
+    .container{max-width:1000px;margin:0 auto;padding:22px}
+    .top{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:54px;height:54px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+    .brand h1{margin:0;font-size:18px}
+    nav{display:flex;gap:14px}
+    nav a{color:var(--muted);text-decoration:none;font-size:14px}
+    .hero{display:grid;grid-template-columns:1fr;gap:18px;padding:34px 0}
+    .hero .intro{background:var(--card);padding:22px;border-radius:12px;box-shadow:0 6px 18px rgba(16,24,40,0.04)}
+    .intro h2{margin:0 0 8px;font-size:22px}
+    .intro p{margin:0;color:var(--muted)}
+    .search{margin-top:12px}
+    .search input{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6}
+
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-top:18px}
+    .post{background:var(--card);padding:16px;border-radius:12px;border:1px solid #f1f1f1}
+    .post h3{margin:0 0 6px}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:10px}
+    .excerpt{color:var(--muted)}
+    .readmore{display:inline-block;margin-top:12px;text-decoration:none;color:var(--accent);font-weight:600}
+
+    aside .card{background:var(--card);padding:14px;border-radius:12px;border:1px solid #f1f1f1;margin-bottom:12px}
+    .categories{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .cat{padding:6px 10px;border-radius:999px;background:#f6f8ff;font-size:13px}
+
+    footer{padding:30px 0;color:var(--muted);font-size:14px;text-align:center}
+
+    /* responsive */
+    @media(min-width:720px){.hero{grid-template-columns:1fr 360px}.grid{grid-template-columns:2fr 360px}}
+    @media(max-width:720px){nav{display:none}.top{gap:12px}.mobile-menu{display:block}}
+    .mobile-menu{display:none}
+
+    /* small utilities */
+    .tag{font-size:12px;color:#0f172a;background:#eef2ff;padding:6px 8px;border-radius:8px}
+    .post-list{display:flex;flex-direction:column;gap:12px}
+    .contact-btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="top">
+        <div class="brand">
+          <div class="logo">W</div>
+          <div>
+            <h1>Worldly Whispers</h1>
+            <div style="font-size:13px;color:var(--muted)">Global Stories, Clear Insights — Curated by Editor Mithsu</div>
+          </div>
+        </div>
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#posts">Blog</a>
+          <a href="#editors">Editor's Note</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div style="display:flex;gap:10px;align-items:center">
+          <button id="themeToggle" title="Toggle theme" style="padding:8px;border-radius:8px;border:1px solid #e6e6e6;background:transparent">🌓</button>
+          <button class="mobile-menu" aria-hidden="true">☰</button>
+        </div>
+      </div>
+          <div>
+            <h1>Worldly Whispers</h1>
+            <div style="font-size:13px;color:var(--muted)">Global Stories, Clear Insights — Curated by Editor Mithsu</div>
+          </div>
+        </div>
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#posts">Blog</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="mobile-menu" aria-hidden="true">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="home">
+      <div class="intro">
+        <h2>Hello — I'm Mithsu, Editor of Worldly Whispers</h2>
+        <p>I curate stories, insights, and perspectives from around the world. Worldly Whispers focuses on global events, culture, tech, and trends — explained in a clear, simple, human way.</p>
+        <div class="search">
+          <input id="searchInput" placeholder="Search posts (try: politics, tech, culture)" />
+        </div>
+        <div style="margin-top:14px">
+          <a class="contact-btn" href="#contact">Subscribe to weekly insights</a>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="padding:18px;border-radius:12px;border:1px solid #f1f1f1">
+          <h3 style="margin:0 0 8px">Featured</h3>
+          <strong style="display:block;margin-bottom:6px">Why the World Is Watching — A Weekly Analysis</strong>
+          <div style="font-size:13px;color:var(--muted)">A concise breakdown of the week's most important stories and what they mean for people everywhere. Edited by Mithsu.</div>
+          <div style="margin-top:12px"><a class="readmore" href="#posts">Read the latest →</a></div>
+        </div>
+
+        <div style="margin-top:12px" class="card">
+          <h4 style="margin:0 0 6px">From the Editor</h4>
+          <p style="margin:0;color:var(--muted)">Welcome — Every week I pick the stories that matter and explain them simply. Follow for concise, thoughtful context on global events.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" id="posts">
+      <div>
+        <div class="post-list">
+
+          <article class="post featured" data-tags="global,analysis">
+            <h3>Featured — Why the World Is Watching</h3>
+            <div class="meta">Nov 17, 2025 · Global · <span class="tag">featured</span></div>
+            <p class="excerpt">Editor Mithsu recaps the week's most important developments around the world — what happened, why it matters, and where things are headed. (Featured)</p>
+            <a class="readmore" href="#">Read more →</a>
+          </article>
+
+          <article class="post" data-tags="technology,ai">
+            <h3>AI Everywhere: Small Changes, Big Effects</h3>
+            <div class="meta">Nov 12, 2025 · Tech · <span class="tag">tech</span></div>
+            <p class="excerpt">Mithsu explores how artificial intelligence is slowly reshaping everyday life — from creativity and work to communication and culture.</p>
+            <a class="readmore" href="#">Read more →</a>
+          </article>
+
+          <article class="post" data-tags="culture,viral">
+            <h3>From Kitchens to Culture: The Viral Recipe That Became a Movement</h3>
+            <div class="meta">Nov 05, 2025 · Culture · <span class="tag">culture</span></div>
+            <p class="excerpt">A cultural reflection by Mithsu on how a small viral trend can reveal deeper human behavior, connection, and the power of shared experiences.</p>
+            <a class="readmore" href="#">Read more →</a>
+          </article>
+
+        </div>
+            <p class="excerpt">Editor Mithsu recaps the most important developments around the world this week — what happened, why it matters, and where things are headed.</p>
+            <a class="readmore" href="#">Read more →</a>
+          </article>
+
+          <article class="post" data-tags="technology,ai">
+            <h3>AI Everywhere: Small Changes, Big Effects</h3>
+            <div class="meta">Nov 12, 2025 · Tech · <span class="tag">tech</span></div>
+            <p class="excerpt">Mithsu explores how artificial intelligence is slowly reshaping everyday life — from creativity and work to communication and culture.</p>
+            <a class="readmore" href="#">Read more →</a>
+          </article>
+
+          <article class="post" data-tags="culture,viral">
+            <h3>From Kitchens to Culture: The Viral Recipe That Became a Movement</h3>
+            <div class="meta">Nov 05, 2025 · Culture · <span class="tag">culture</span></div>
+            <p class="excerpt">A cultural reflection by Mithsu on how a small viral trend can reveal deeper human behavior, connection, and the power of shared experiences.</p>
+            <a class="readmore" href="#">Read more →</a>
+          </article>
+
+        </div>
+            <p class="excerpt">A quick roundup of important headlines and what they mean. (Replace this with your own summary.)</p>
+            <a class="readmore" href="#">Read more →</a>
+          </article>
+
+          <article class="post" data-tags="tech,innovation">
+            <h3>Tech trends shaping our lives</h3>
+            <div class="meta">Nov 10, 2025 · Tech · <span class="tag">tech</span></div>
+            <p class="excerpt">Notes on the latest innovations and how they affect everyday people. Personal commentary encouraged.</p>
+            <a class="readmore" href="#">Read more →</a>
+          </article>
+
+          <article class="post" data-tags="life,travel">
+            <h3>Culture & life: small stories</h3>
+            <div class="meta">Oct 28, 2025 · Culture · <span class="tag">culture</span></div>
+            <p class="excerpt">Personal essays about culture, travel, food, and small things that connect us.</p>
+            <a class="readmore" href="#">Read more →</a>
+          </article>
+
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h4 style="margin:0 0 8px">About</h4>
+          <p style="margin:0;color:var(--muted)">Worldly Whispers is a global insights blog curated and edited by Mithsu. We bring together meaningful stories, worldwide trends, and thoughtful explanations to help readers understand what’s happening across the globe.</p>
+        </div>
+
+        <div class="card">
+          <h4 style="margin:0 0 8px">Categories</h4>
+          <div class="categories">
+  <div class="cat">World</div>
+  <div class="cat">Culture</div>
+  <div class="cat">Technology</div>
+  <div class="cat">Society</div>
+  <div class="cat">Editor’s Picks</div>
+</div>
+            <div class="cat">Tech</div>
+            <div class="cat">Culture</div>
+            <div class="cat">Lifestyle</div>
+            <div class="cat">Opinion</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4 style="margin:0 0 8px">Quick links</h4>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <a href="#about">About me</a>
+            <a href="#contact">Contact</a>
+            <a href="#">All posts</a>
+          </div>
+        </div>
+
+      </aside>
+    </section>
+
+    <section id="about" style="margin-top:24px">
+      <div class="post" style="padding:18px">
+        <h3>About — Worldly Whispers</h3>
+        <p class="excerpt">Worldly Whispers is a global insights blog curated and edited by Mithsu. We bring together meaningful stories, worldwide trends, and thoughtful explanations to help readers understand what’s happening across the globe. Our focus is clarity, context, and curiosity.</p>
+      </div>
+    </section>
+
+    <section id="editors" style="margin-top:18px">
+      <div class="post" style="padding:18px">
+        <h3>Editor's Note</h3>
+        <p class="excerpt">I’m Mithsu — I started Worldly Whispers to bridge daily headlines with practical context. Each piece aims to answer: what happened, why it matters, and what to watch next. Expect a mix of short briefings, cultural essays, and occasional deep dives. — <em>M.</em></p>
+        <h4 style="margin-top:12px">What you can expect</h4>
+        <ul>
+          <li>Weekly recaps of major global stories.</li>
+          <li>Explainers that simplify complex topics.</li>
+          <li>Culture pieces that connect trends to wider shifts.</li>
+          <li>Occasional interviews and guest perspectives.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:18px">
+      <div class="post" style="padding:18px">
+        <h3>Newsletter & Contact</h3>
+<p class="excerpt">Subscribe to get weekly insights curated by Editor Mithsu. For collaborations or pitches, use the form below.</p>
+<form onsubmit="event.preventDefault(); alert('Demo form — connect to Netlify Forms or Formspree for real submissions.');" style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+  <input placeholder="Your name" required style="padding:10px;border-radius:8px;border:1px solid #e6e6e6" />
+  <input placeholder="Your email" type="email" required style="padding:10px;border-radius:8px;border:1px solid #e6e6e6" />
+  <textarea placeholder="Message or feedback" rows="4" style="padding:10px;border-radius:8px;border:1px solid #e6e6e6"></textarea>
+  <button type="submit" class="contact-btn">Send</button>
+</form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="margin-bottom:8px">© <strong>Worldly Whispers</strong> · Edited by Mithsu</div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Built with a simple single-file template. Edit and publish for free.</div>
+      <div style="display:flex;gap:12px;justify-content:center;align-items:center;margin-bottom:8px">
+        <!-- Social icons (replace href with your profiles) -->
+        <a aria-label="Twitter" href="#" target="_blank" rel="noopener" style="text-decoration:none">🐦</a>
+        <a aria-label="X" href="#" target="_blank" rel="noopener" style="text-decoration:none">✳</a>
+        <a aria-label="LinkedIn" href="#" target="_blank" rel="noopener" style="text-decoration:none">in</a>
+        <a aria-label="Instagram" href="#" target="_blank" rel="noopener" style="text-decoration:none">📸</a>
+      </div>
+      <div style="font-size:13px;color:var(--muted)">Theme: <button id="themeLabel" style="background:transparent;border:none;color:var(--muted)">Light</button></div>
+    </div>
+  </footer>
+
+  <script>
+    // Basic search (client-side tag match) and mobile menu
+    const input = document.getElementById('searchInput');
+    input && input.addEventListener('input', e => {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.post').forEach(p => {
+        const t = (p.textContent + ' ' + p.dataset.tags).toLowerCase();
+        p.style.display = q && !t.includes(q) ? 'none' : '';
+      })
+    });
+  </script>
+  <script>
+    // Basic search (client-side tag match) and mobile menu
+    const input = document.getElementById('searchInput');
+    input && input.addEventListener('input', e => {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.post').forEach(p => {
+        const t = (p.textContent + ' ' + (p.dataset.tags||'')).toLowerCase();
+        p.style.display = q && !t.includes(q) ? 'none' : '';
+      })
+    });
+
+    // Theme toggle (persists to localStorage)
+    const themeToggle = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+    function setTheme(theme){
+      if(theme === 'dark') document.documentElement.setAttribute('data-theme','dark');
+      else document.documentElement.removeAttribute('data-theme');
+      themeLabel && (themeLabel.textContent = theme === 'dark' ? 'Dark' : 'Light');
+    }
+    const saved = localStorage.getItem('ww-theme') || 'light';
+    setTheme(saved);
+    themeToggle && themeToggle.addEventListener('click', ()=>{
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+      localStorage.setItem('ww-theme', next);
+    });
+
+    // mobile menu (simple)
+    document.querySelectorAll('.mobile-menu').forEach(btn=>btn.addEventListener('click', ()=>{
+      const nav = document.querySelector('nav');
+      if(nav.style.display === 'flex' || nav.style.display === '') nav.style.display = 'none';
+      else nav.style.display = 'flex';
+    }));
+  </script>
+</body>
+</html>
